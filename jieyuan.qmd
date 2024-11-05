@@ -152,7 +152,11 @@ grades_info |>
   geom_smooth()
 ```
 
+## Question14
 
 ```{r}
+cor_info = grades_info|>group_by(group)|>
+  summarise(correlation=cor(x=`Space Law and Ethics`,y=`Virtual Reality and Simulated Environments`))
+cor_info
 ```
 
