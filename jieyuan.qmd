@@ -188,4 +188,14 @@ final_grades_stat |> ggplot(aes(x=group,y=avg_grade))+geom_col()
 ```{r}
 final_grades_stat |> ggplot(aes(x=group,y=sd_grade))+geom_col()
 ```
+## Question18
+```{r}
+pass_info = grades|>group_by(id,group,course)|>mutate(avg_grade_course=mean(grade))|>
+  mutate(flag1=avg_grade_course<5)
+pass_info = pass_info|>group_by(id,group,course,semester)|>mutate(avg_grade_semester=mean(avg_grade_course)) |> mutate(flag2=avg_grade_semester>=10)
+pass_info = pass_info|>group_by(id,group) |> mutate(final_grade=mean(avg_grade_course))
+
+pass_info = pass_info |> mutate(pass = (!flag1)&(flag2)) |> distinct(id,group,final_grade,pass)
+pass_info
+```
 
