@@ -49,8 +49,16 @@ students = grades|>distinct(id,.keep_all = TRUE)|> select(id,group)
 students |> slice_tail(n = 5) |> knitr::kable()
 ```
 
+# Question5
 
+- use group_by and summarise to get the number
+- use ggplot and geom_bar to plot the bar chart
+- use labs and theme_minimal to beautify
 ```{r}
+students|>group_by(group)|>summarise(number=n())|>
+  ggplot(aes(x=group,y=number))+geom_bar(stat = "identity")+
+  labs(x = "Group", y = "Number of Students") +
+  theme_minimal()
 ```
 
 
