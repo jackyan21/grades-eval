@@ -168,4 +168,11 @@ grades_info |> filter(group==most_cor_group)|>
   ggplot(aes(x=`Virtual Reality and Simulated Environments`,y=`Space Law and Ethics`))+
   geom_smooth()
 ```
+## Quesiton16
+```{r}
+final_grades = grades|>group_by(id,group,course)|>summarise(avg_grade=mean(grade),.groups='drop')|>
+  group_by(id,group)|>summarise(final_grade=mean(avg_grade),.groups='drop')
+final_grades = final_grades|>arrange(desc(final_grade))
+final_grades|>slice(1:5)
+```
 
