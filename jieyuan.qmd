@@ -29,6 +29,15 @@ grades = vroom(here('grades.csv'),show_col_types = FALSE)
 The data set contains `{r} nrow(grades)` grades
 
 ```{r}
+nrow(grades)
+```
+
+## Question3
+
+The data set contains `{r} nrow(grades|>distinct(id))` students
+
+```{r}
+nrow(grades|>distinct(id))
 ```
 
 
