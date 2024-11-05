@@ -6,3 +6,40 @@ format: html
 
 ## This is my dplyr lab
 
+### Preparing library
+```{r}
+#| message: false
+here::i_am('grades-eval.Rproj')
+library(here)
+library(dplyr)
+library(vroom)
+library(ggplot2)
+library(tidyr)
+```
+
+## Question1
+
+Load the DataSet
+```{r}
+grades = vroom(here('grades.csv'),show_col_types = FALSE)
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
