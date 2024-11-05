@@ -24,6 +24,9 @@ Load the DataSet
 grades = vroom(here('grades.csv'),show_col_types = FALSE)
 ```
 
+## Question2
+
+The data set contains `{r} nrow(grades)` grades
 
 ```{r}
 ```
