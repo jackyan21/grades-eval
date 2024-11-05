@@ -127,8 +127,13 @@ AI_info|>group_by(num_grades)|>summarise(num_students=n())|>
   ggplot(aes(x=num_grades,y=num_students))+geom_col()
 ```
 
+## Question11
+
+- from the average number of grades within each group, we can see it is uniformly distributed.
 
 ```{r}
+AI_info|>group_by(group)|>summarise(avg_num_grades=mean(num_grades))|>
+  ggplot(aes(x=group,y=avg_num_grades))+geom_col()
 ```
 
 
