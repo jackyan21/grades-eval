@@ -175,4 +175,17 @@ final_grades = grades|>group_by(id,group,course)|>summarise(avg_grade=mean(grade
 final_grades = final_grades|>arrange(desc(final_grade))
 final_grades|>slice(1:5)
 ```
+## Question17
+- summarise the mean,sd, median
+- plot the mean, they don't have significant different
+```{r}
+final_grades_stat = final_grades|>group_by(group)|>summarise(avg_grade=mean(final_grade),
+                                         sd_grade=sd(final_grade),
+                                         median_grade=median(final_grade))
+final_grades_stat |> ggplot(aes(x=group,y=avg_grade))+geom_col()
+```
+- plot the standard deviation
+```{r}
+final_grades_stat |> ggplot(aes(x=group,y=sd_grade))+geom_col()
+```
 
