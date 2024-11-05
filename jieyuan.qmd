@@ -40,8 +40,13 @@ The data set contains `{r} nrow(grades|>distinct(id))` students
 nrow(grades|>distinct(id))
 ```
 
+## Question4
 
+- create a dataframe named students.
+- extract the last five rows of students.
 ```{r}
+students = grades|>distinct(id,.keep_all = TRUE)|> select(id,group)
+students |> slice_tail(n = 5) |> knitr::kable()
 ```
 
 
