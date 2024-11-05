@@ -198,4 +198,15 @@ pass_info = pass_info|>group_by(id,group) |> mutate(final_grade=mean(avg_grade_c
 pass_info = pass_info |> mutate(pass = (!flag1)&(flag2)) |> distinct(id,group,final_grade,pass)
 pass_info
 ```
+## Quesion19
+
+```{r}
+nrow(pass_info|>filter((!pass)&(final_grade>=10)))
+```
+
+## Question 20
+
+```{r}
+pass_info|>group_by(group)|>summarise(pass_rate=(sum(pass)/n()))|> ggplot(aes(x=group,y=pass_rate))+geom_col()
+```
 
