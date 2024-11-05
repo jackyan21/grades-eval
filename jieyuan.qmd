@@ -120,4 +120,26 @@ AI_info = grades|>filter(course=='Artificial Intelligence and Robotics')|>group_
   summarize(num_grades = n(), .groups = "drop")
 AI_info|>slice(1:6)
 ```
+## Question10
+
+```{r}
+AI_info|>group_by(num_grades)|>summarise(num_students=n())|>
+  ggplot(aes(x=num_grades,y=num_students))+geom_col()
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
 
