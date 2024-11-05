@@ -136,10 +136,13 @@ AI_info|>group_by(group)|>summarise(avg_num_grades=mean(num_grades))|>
   ggplot(aes(x=group,y=avg_num_grades))+geom_col()
 ```
 
+## Question12
 
 ```{r}
+grades_info = grades|>group_by(id,group,course)|>summarise(avg_grade=mean(grade),.groups='drop')|>
+  pivot_wider(names_from = course,values_from = avg_grade)
+grades_info|>slice(1:6)
 ```
-
 
 ```{r}
 ```
