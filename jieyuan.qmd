@@ -61,8 +61,15 @@ students|>group_by(group)|>summarise(number=n())|>
   theme_minimal()
 ```
 
+## Question6
 
+- use filter to select the qualified data
+- use groupby, summarise, mean to get the average grade
+- use ggplot and geom_col to plot the data
 ```{r}
+grades|>filter(course=='Astroengineering and Planetary Colonization')|>
+  group_by(group)|>summarise(average_grade=mean(grade))|>
+  ggplot(aes(x=group,y=average_grade))+geom_col(fill = "skyblue")
 ```
 
 
