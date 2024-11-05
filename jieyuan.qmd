@@ -72,6 +72,22 @@ grades|>filter(course=='Astroengineering and Planetary Colonization')|>
   ggplot(aes(x=group,y=average_grade))+geom_col(fill = "skyblue")
 ```
 
+## Question7
+- use boxplot
+```{r}
+grades|>ggplot(aes(x=semester,y = grade, group = semester)) +
+  geom_boxplot()
+```
+- use desensity and facet_warp
+```{r}
+grades|>ggplot(aes(x=grade)) +
+  geom_density()+facet_wrap(~semester)
+```
 
 ```{r}
 ```
+
+
+```{r}
+```
+
