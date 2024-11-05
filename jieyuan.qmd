@@ -112,8 +112,12 @@ num_grades_stat = num_grades |> summarize(
 | Average       | `r num_grades_stat$avg_num` |
 | Median        | `r num_grades_stat$median_num` |
 
+## Question9
 
+- group_by
 ```{r}
-
+AI_info = grades|>filter(course=='Artificial Intelligence and Robotics')|>group_by(id, group) |>
+  summarize(num_grades = n(), .groups = "drop")
+AI_info|>slice(1:6)
 ```
 
