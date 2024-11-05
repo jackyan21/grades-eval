@@ -159,4 +159,13 @@ cor_info = grades_info|>group_by(group)|>
   summarise(correlation=cor(x=`Space Law and Ethics`,y=`Virtual Reality and Simulated Environments`))
 cor_info
 ```
+## Question15
+- find that group
+- conduct linear regression
+```{r}
+most_cor_group= cor_info|>filter(abs(correlation)==max(abs(correlation)))|>pull(group)
+grades_info |> filter(group==most_cor_group)|>
+  ggplot(aes(x=`Virtual Reality and Simulated Environments`,y=`Space Law and Ethics`))+
+  geom_smooth()
+```
 
