@@ -144,7 +144,12 @@ grades_info = grades|>group_by(id,group,course)|>summarise(avg_grade=mean(grade)
 grades_info|>slice(1:6)
 ```
 
+# Question13
+- From the linear regression, we can see that the average grades of Neurotechnology and Mind Control is negatively correlated with that of Virtual Reality and Simulated Environments.
 ```{r}
+grades_info |> 
+  ggplot(aes(x=`Virtual Reality and Simulated Environments`,y=`Neurotechnology and Mind Control`))+
+  geom_smooth()
 ```
 
 
