@@ -84,10 +84,36 @@ grades|>ggplot(aes(x=grade)) +
   geom_density()+facet_wrap(~semester)
 ```
 
+## Question8
+
+- group_by the id and group.
+- extract the first six rows.
 ```{r}
+num_grades = grades|>group_by(id, group) |>
+  summarize(num_grades = n(), .groups = "drop")
+num_grades|>slice(1:6)
+```
+- summarise the data
+```{r}
+num_grades_stat = num_grades |> summarize(
+    min_num = min(num_grades),
+    max_num = max(num_grades),
+    avg_num = mean(num_grades),
+    median_num = median(num_grades)
+  )
 ```
 
+- display the table
+
+| Statistic     | Value   |
+|---------------|---------|
+| Minimum       | `r num_grades_stat$min_num` |
+| Maximum       | `r num_grades_stat$max_num` |
+| Average       | `r num_grades_stat$avg_num` |
+| Median        | `r num_grades_stat$median_num` |
+
 
 ```{r}
+
 ```
 
